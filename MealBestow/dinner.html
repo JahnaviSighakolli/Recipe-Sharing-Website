@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mealBestow">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meal Bestow</title>
+        <link href="styles.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a760d5eed3.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <style>
+            *
+            {
+                box-sizing: border-box;
+            }
+            body
+            {
+                background-color: #f1f1f1;
+            }
+        </style>
+        <script>
+            function openPopup(popupId)
+            {
+                var popup = document.getElementById(popupId);
+                popup.style.display = "block";
+            }
+
+            function closePopup(popupId)
+            {
+                var popup = document.getElementById(popupId);
+                popup.style.display = "none";
+            }
+
+        </script>
+    </head>
+    <body ng-controller="BreakfastController">
+        <nav>
+            <ul class="navbar">
+                <img src="Screenshot 2023-08-27 105735.png" width="150px" height="150px">
+                <li class="search">
+                    <form name="sform" action="#">
+                        <input type="text" placeholder="   What are you looking for ?" name="search">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </li>
+                <h1 style="padding-left: 150px; padding-right: 0%;">MEAL BESTOW</h1>
+                <li><a href="home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fa-solid fa-utensils"></i> Recipes</a>
+                    <ul class="dropdown-content">
+                        <li><a href="breakfast.html">Breakfast</a></li>
+                        <li><a href="lunch.html">Lunch</a></li>
+                        <li><a href="dinner.html">Dinner</a></li>
+                        <li><a href="desserts.html">Desserts</a></li>
+                        <li><a href="snacks.html">Snacks</a></li>
+                        <li><a href="beverages.html">Beverages</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+                <li><a href="upload_recipe.html"><i class="fa-solid fa-upload"></i> Upload</a></li>
+                <li><a href="save.html"><i class="fa-solid fa-child"></i> Profile</a></li>
+                <li><a href="index.php"><i class="fa-solid fa-user"></i> LogOut</a></li>
+            </ul>
+        </nav>
+        <div class="row">
+            <div class="column">
+              <div class="content">
+                <div class="video-popup" id="videoPopup1">
+                    <div class="popup-content">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/nvvHQQTW9uo?si=4zViMkGSfzUzp9m0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <span class="close-btn" onclick="closePopup('videoPopup1')">&times;</span>
+                    </div>
+                </div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREytOEEsFxTfOm1Yzf9Ob-7yWKDh9KD0Sctg&usqp=CAU" alt="paneer" onclick="openPopup('videoPopup1')" style="width:100%">
+                <h3>Palak Dal</h3>
+                <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Palak Dal')">SAVE</button>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup2">
+                        <div class="popup-content">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/iYTnZ11-WCQ?si=O_NHEYOFh5u3-ltr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup2')">&times;</span>
+                        </div>
+                    </div>
+                    <img src="https://theplantbasedschool.com/wp-content/uploads/2022/11/Sweet-potato-curry-1-1.jpg" alt="corn" onclick="openPopup('videoPopup2')" style="width:200px">
+                    <h3> Potato Curry</h3>
+                    <div class="icon">
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <button style="float: right;" ng-click="saveItem(' Potato Curry')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+            <div class="column" style="padding-right: 0px;">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup3">
+                        <div class="popup-content">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/0bs7u1CLKy8?si=hiucbQ61YS5uo7PJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup3')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPAVKivLBo284EEGcrgEmqIw6E19lNZOXppw&usqp=CAU" alt="vada" onclick="openPopup('videoPopup3')" style="width:300px">
+                  <h3>Egg Curry</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Egg Curry')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup4">
+                        <div class="popup-content">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/U1LVDFwi8qI?si=8Eec-8ZGZ9lLN0fB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup4')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://www.yummytummyaarthi.com/wp-content/uploads/2021/12/1.jpg" alt="bhelpuri" onclick="openPopup('videoPopup4')" style="width:100%">
+                  <h3>Paneer</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Paneer')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup5">
+                        <div class="popup-content">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/D1_vgCcam4A?si=cmjytqc4G3iMwrbK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup5')">&times;</span>
+                        </div>
+                    </div>
+                    <img src="https://cdn2.foodviva.com/static-content/food-images/south-indian-recipes/carrot-poriyal/carrot-poriyal.jpg" alt="potato" onclick="openPopup('videoPopup5')" style="width:100%">
+                    <h3>Carrot</h3>
+                    <div class="icon">
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <button style="float: right;" ng-click="saveItem('Carrot')">SAVE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup6">
+                        <div class="popup-content">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/BHWJVSlm0-s?si=jCCXUkzBFC5VuyGP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup6')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://tastedrecipes.com/wp-content/uploads/2022/03/Drumstick-Curry-04.jpg" alt="poha" onclick="openPopup('videoPopup6')" style="width:100%">
+                  <h3>Drum Stick</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Drum Stick')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var app = angular.module('mealBestow', []);
+        
+            app.controller('BreakfastController', function($scope) {
+                $scope.saveItem = function(itemName) {
+                    var savedItems = JSON.parse(sessionStorage.getItem('savedItems')) || [];
+                    if (!savedItems.includes(itemName)) {
+                        savedItems.push(itemName);
+                        sessionStorage.setItem('savedItems', JSON.stringify(savedItems));
+                        alert(itemName + ' has been saved for this session.');
+                    } else {
+                        alert(itemName + ' is already saved.');
+                    }
+                };
+            });
+
+            window.onbeforeunload = function (event) {
+                localStorage.clear();
+            };
+
+        </script>
+    </body>
+</html>

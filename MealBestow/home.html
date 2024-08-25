@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mealBestow">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Bestow</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://kit.fontawesome.com/a760d5eed3.js" crossorigin="anonymous"></script>
+    <style>
+        .search {
+            position: relative;
+        }
+
+        .search form {
+            display: flex;
+        }
+
+        .search input {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .search button {
+            color: black;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .dropdowns {
+            position: relative;
+        }
+
+        .dropdowns-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            background-color: #f9f9f9;
+            min-width: 60px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdowns-content a {
+            padding: 10px 10px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .dropdowns-content a:hover {
+            background-color: #ddd;
+        }
+
+        .search:hover .dropdowns-content {
+            display: block;
+        }
+    </style>
+</head>
+<body ng-controller="SearchController">
+    <nav>
+        <ul class="navbar">
+            <img src="Screenshot 2023-08-27 105735.png" width="150px" height="150px">
+            <li class="search">
+                <form name="sform" action="#">
+                    <input type="text" placeholder="   What are you looking for ?" name="search" ng-model="searchQuery" ng-change="updateDropdown()">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <div class="dropdowns-content" ng-show="showDropdown">
+                        <a ng-repeat="suggestion in suggestions" ng-click="selectSuggestion(suggestion)">{{ suggestion }}</a>
+                    </div>
+                </form>
+            </li>
+            <h1 style="padding-left: 100px; padding-right: 0%;">MEAL BESTOW</h1>
+            <li><a href="home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li class="dropdown">
+                <a href="#"><i class="fa-solid fa-utensils"></i> Recipes</a>
+                <ul class="dropdown-content">
+                    <li><a href="breakfast.html">Breakfast</a></li>
+                    <li><a href="lunch.html">Lunch</a></li>
+                    <li><a href="dinner.html">Dinner</a></li>
+                    <li><a href="desserts.html">Desserts</a></li>
+                    <li><a href="snacks.html">Snacks</a></li>
+                    <li><a href="beverages.html">Beverages</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+            <li><a href="upload_recipe.html"><i class="fa-solid fa-upload"></i> Upload</a></li>
+            <li><a href="save.html"><i class="fa-solid fa-child"></i> Profile</a></li>
+            <li><a href="index.php"><i class="fa-solid fa-user"></i> LogOut</a></li>
+        </ul>
+    </nav>
+    <div class="contain">
+        <img src="https://i.pinimg.com/originals/9e/ea/b0/9eeab0fb045184bde87504e12a564b50.jpg" width="1519px" height="550px">
+        <div class="textbox">
+            <h1>Share Your<br>Recipes</h1>
+        </div>
+    </div>
+    <div class="container">
+        <img src="https://x.yummlystatic.com/web/banner-marble-bkg.jpg" alt="whitebg" width="1519px" height="700px">
+        <div class="bottom-left"></div>
+        <div class="top-left"><img src="https://x.yummlystatic.com/web/strawberry-grain.png"></div>
+        <div class="top-right"><img src="https://x.yummlystatic.com/web/img-fruit-bowl.png"></div>
+        <div class="bottom-right"><img src="https://x.yummlystatic.com/web/img-strawberry.png"></div>
+        <div class="bgcentered">
+            <h2 style="font-size: 23pt;">Welcome to MealBestow - Where Recipes Come to Life!</h2>
+            <p>Are you ready to embark on a culinary adventure like no other? Look no further. MealBestow is your ultimate destination for discovering, sharing, and celebrating the art of cooking. Whether you're a seasoned chef or a kitchen newbie, we're here to inspire, guide, and connect you with a world of flavors.</p>
+            <h3>Our Philosophy</h3>
+            <p>Cooking is an art, a science, and an expression of creativity. It's about crafting something beautiful, nourishing, and utterly delightful. At MealBestow, we celebrate the magic that happens when ingredients meet imagination.</p>
+            <h3>Our Mission</h3>
+            <p>At MealBestow, we're on a mission to make cooking accessible, exciting, and a source of joy for everyone. We believe that cooking is more than just preparing meals – it's a way to express creativity, share stories, and strengthen bonds.</p>
+            <hr>
+            <h1>Contact Us</h1>
+            <p><span class="con"> Email : </span>contact@mealbestow.com</p>
+            <p><span class="con"> Phone : </span>+1-123-456-7890</p>
+            <div class="icon">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-square-instagram"></i>
+                <i class="fa-brands fa-square-twitter"></i>
+                <i class="fa-brands fa-square-whatsapp"></i>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('mealBestow', []);
+    
+        app.controller('SearchController', function($scope, $location) {
+            var recipeSuggestions = ['Chicken Biriyani', 'Mutton Biriyani', 'Chocolate Coffee Truffle', 'Badam Eggless Chocolate Mousse', 'Breakfast'];
+
+            $scope.showDropdown = false;
+            $scope.suggestions = [];
+
+            $scope.updateDropdown = function() {
+                $scope.suggestions = [];
+                $scope.showDropdown = false;
+
+                var query = $scope.searchQuery.toLowerCase();
+                if (query.length > 0) {
+                    $scope.suggestions = recipeSuggestions.filter(function(suggestion) {
+                        return suggestion.toLowerCase().includes(query);
+                    });
+
+                    $scope.showDropdown = $scope.suggestions.length > 0;
+                }
+            };
+
+            $scope.selectSuggestion = function(suggestion) {
+                $scope.searchQuery = suggestion;
+                $scope.showDropdown = false;
+
+                
+                var formattedSuggestion = suggestion.toLowerCase().replace(/\s+/g, '_') + '.html';
+                window.location.href = formattedSuggestion;
+            };
+
+        });
+    </script>
+</body>
+</html>

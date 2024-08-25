@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mealBestow">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meal Bestow</title>
+        <link href="styles.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a760d5eed3.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <style>
+            *
+            {
+                box-sizing: border-box;
+            }
+            body
+            {
+                background-color: #f1f1f1;
+            }
+        </style>
+        <script>
+            function openPopup(popupId)
+            {
+                var popup = document.getElementById(popupId);
+                popup.style.display = "block";
+            }
+
+            function closePopup(popupId)
+            {
+                var popup = document.getElementById(popupId);
+                popup.style.display = "none";
+            }
+
+        </script>
+    </head>
+    <body ng-controller="BreakfastController">
+        <nav>
+            <ul class="navbar">
+                <img src="Screenshot 2023-08-27 105735.png" width="150px" height="150px">
+                <li class="search">
+                    <form name="sform" action="#">
+                        <input type="text" placeholder="   What are you looking for ?" name="search">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </li>
+                <h1 style="padding-left: 150px; padding-right: 0%;">MEAL BESTOW</h1>
+                <li><a href="home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fa-solid fa-utensils"></i> Recipes</a>
+                    <ul class="dropdown-content">
+                        <li><a href="breakfast.html">Breakfast</a></li>
+                        <li><a href="lunch.html">Lunch</a></li>
+                        <li><a href="dinner.html">Dinner</a></li>
+                        <li><a href="desserts.html">Desserts</a></li>
+                        <li><a href="snacks.html">Snacks</a></li>
+                        <li><a href="beverages.html">Beverages</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+                <li><a href="upload_recipe.html"><i class="fa-solid fa-upload"></i> Upload</a></li>
+                <li><a href="save.html"><i class="fa-solid fa-child"></i> Profile</a></li>
+                <li><a href="index.php"><i class="fa-solid fa-user"></i> LogOut</a></li>
+            </ul>
+        </nav>
+        <div class="row">
+            <div class="column">
+              <div class="content">
+                <div class="video-popup" id="videoPopup1">
+                    <div class="popup-content">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/XG3EFc-qbmo?si=NCVxGnbU35Nr606g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <span class="close-btn" onclick="closePopup('videoPopup1')">&times;</span>
+                    </div>
+                </div>
+                <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2022/05/agua-fresca-recipe-01-280x280.jpg" alt="Watermelon" onclick="openPopup('videoPopup1')" style="width:100%">
+                <h3>Watermelon | Refreshing Drink</h3>
+                <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Watermelon | Refreshing Drink')">SAVE</button>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup2">
+                        <div class="popup-content">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/SlqpgRCdSyo?si=KhTkkKMYjw6gjZYA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup2')">&times;</span>
+                        </div>
+                    </div>
+                    <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2021/04/lassi-recipe-1-280x280.jpg" alt="lassi" onclick="openPopup('videoPopup2')" style="width:100%">
+                    <h3>Lassi Recipe</h3>
+                    <div class="icon">
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <button style="float: right;" ng-click="saveItem('Lassi Recipe')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup3">
+                        <div class="popup-content">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/aVVglnnRRdI?si=wy1VylxSk1clMiWn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup3')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2020/12/green-tea-280x280.jpg" alt="tea" onclick="openPopup('videoPopup3')" style="width:100%">
+                  <h3>Green Tea Recipe</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Green Tea Recipe')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup4">
+                        <div class="popup-content">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/T3jyLa6Xr6c?si=Z5SFgZBjxlEeQ0eQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup4')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2017/08/badam-milk-recipe-280x280.jpg" alt="badam" onclick="openPopup('videoPopup4')" style="width:100%">
+                  <h3>Badam Milk Recipe</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Badam Milk Recipe')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup5">
+                        <div class="popup-content">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Fs-H34GP1d4?si=V2i7Wrjr_yjnmkoF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup5')">&times;</span>
+                        </div>
+                    </div>
+                    <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2022/05/aam-panna-1-280x280.jpg" alt="aam" onclick="openPopup('videoPopup5')" style="width:100%">
+                    <h3>Aam Panna Recipe</h3>
+                    <div class="icon">
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <button style="float: right;" ng-click="saveItem('Aam Panna Recipe')">SAVE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup6">
+                        <div class="popup-content">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/LcSYKsdZCM8?si=qx4She7c9ppNfEmE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup6')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2021/04/cold-coffee-recipe-1-280x280.jpg" alt="coffee" onclick="openPopup('videoPopup6')" style="width:100%">
+                  <h3>Cold Coffee Recipe</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Cold Coffee Recipe')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var app = angular.module('mealBestow', []);
+        
+            app.controller('BreakfastController', function($scope) {
+                $scope.saveItem = function(itemName) {
+                    var savedItems = JSON.parse(sessionStorage.getItem('savedItems')) || [];
+                    if (!savedItems.includes(itemName)) {
+                        savedItems.push(itemName);
+                        sessionStorage.setItem('savedItems', JSON.stringify(savedItems));
+                        alert(itemName + ' has been saved for this session.');
+                    } else {
+                        alert(itemName + ' is already saved.');
+                    }
+                };
+            });
+
+            window.onbeforeunload = function (event) {
+                localStorage.clear();
+            };
+
+        </script>
+    </body>
+</html>

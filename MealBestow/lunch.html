@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mealBestow">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meal Bestow</title>
+        <link href="styles.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a760d5eed3.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <style>
+            *
+            {
+                box-sizing: border-box;
+            }
+            body
+            {
+                background-color: #f1f1f1;
+            }
+        </style>
+        <script>
+            function openPopup(popupId)
+            {
+                var popup = document.getElementById(popupId);
+                popup.style.display = "block";
+            }
+
+            function closePopup(popupId)
+            {
+                var popup = document.getElementById(popupId);
+                popup.style.display = "none";
+            }
+
+        </script>
+    </head>
+    <body ng-controller="BreakfastController">
+        <nav>
+            <ul class="navbar">
+                <img src="Screenshot 2023-08-27 105735.png" width="150px" height="150px">
+                <li class="search">
+                    <form name="sform" action="#">
+                        <input type="text" placeholder="   What are you looking for ?" name="search">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </li>
+                <h1 style="padding-left: 150px; padding-right: 0%;">MEAL BESTOW</h1>
+                <li><a href="home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fa-solid fa-utensils"></i> Recipes</a>
+                    <ul class="dropdown-content">
+                        <li><a href="breakfast.html">Breakfast</a></li>
+                        <li><a href="lunch.html">Lunch</a></li>
+                        <li><a href="dinner.html">Dinner</a></li>
+                        <li><a href="desserts.html">Desserts</a></li>
+                        <li><a href="snacks.html">Snacks</a></li>
+                        <li><a href="beverages.html">Beverages</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+                <li><a href="upload_recipe.html"><i class="fa-solid fa-upload"></i> Upload</a></li>
+                <li><a href="save.html"><i class="fa-solid fa-child"></i> Profile</a></li>
+                <li><a href="index.php"><i class="fa-solid fa-user"></i> LogOut</a></li>
+            </ul>
+        </nav>
+        <div class="row">
+            <div class="column">
+              <div class="content">
+                <div class="video-popup" id="videoPopup1">
+                    <div class="popup-content">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/fcqi9meOwJQ?si=oUDyUG2qNjqdh9h0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <span class="close-btn" onclick="closePopup('videoPopup1')">&times;</span>
+                    </div>
+                </div>
+                <img src="https://st2.depositphotos.com/1354142/7950/i/950/depositphotos_79501054-stock-photo-south-indian-meals-served-on.jpg" alt="paneer" onclick="openPopup('videoPopup1')" style="width:300px">
+                <h3>Meals</h3>
+                <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Meals')">SAVE</button>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup2">
+                        <div class="popup-content">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/uygb9O-MDPw?si=3TFnQDsOd4kMs-7q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup2')">&times;</span>
+                        </div>
+                    </div>
+                    <img src="https://vismaifood.com/storage/app/uploads/public/e12/7b7/127/thumb__700_0_0_0_auto.jpg" alt="corn" onclick="openPopup('videoPopup2')" style="width:300px">
+                    <h3> Chicken Biriyani</h3>
+                    <div class="icon">
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <button style="float: right;" ng-click="saveItem('Chicken Biriyani')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+            <div class="column" style="padding-right: 0px;">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup3">
+                        <div class="popup-content">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/OurrYxgvry4?si=b8DGVuqw07bpQlV0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup3')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://i.ytimg.com/vi/s4YsKuoYTe8/maxresdefault.jpg" alt="vada" onclick="openPopup('videoPopup3')" style="width:100%">
+                  <h3>Mutton Biriyani</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Mutton Biriyani')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+            <div class="column" style="padding-left: 0px; margin-left: 0px;">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup4">
+                        <div class="popup-content">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/iv1frVobFeQ?si=nm4PW43L0UUWf3lA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup4')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://media.istockphoto.com/id/1175434591/photo/fried-rice-with-ketchup-and-soy-sauce.jpg?s=612x612&w=0&k=20&c=h4PypFpU_ktxXBGlw6P-K6t6WfDeJ6PMcCEXb7rwxqk=" alt="bhelpuri" onclick="openPopup('videoPopup4')" style="width:100%">
+                  <h3>Egg Rice</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Egg Rice')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+            <div class="column" style="padding-left: 0px;">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup5">
+                        <div class="popup-content">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/ovZPQjM_0r0?si=bnvknhWmAeCSs3hs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup5')">&times;</span>
+                        </div>
+                    </div>
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoGBxQUExYUFBQYFhYZGyIdGxoaGiAfIhwiHB8iHCEfICAdICsiISEoHyAfIzQkKCwuMTExHyE3PDcwOyswMS4BCwsLDw4PHRERHTApIikwMDM8OzAxMzA5MDAwMjAyOTAwMDIwMDAwMDIyMjAwMDAwMDAwMDAwMDAwMDAwMDAwMP/AABEIAOEA4QMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQIDBgABB//EAEUQAAIBAwMCBAMEBwUGBgMBAAECEQADIQQSMQVBEyJRYQZxgTKRobEUM0JSwdHwFSNykuE0U1Ri0vEWc4KTorJDRIQH/8QAGgEAAgMBAQAAAAAAAAAAAAAAAgMAAQQFBv/EADERAAICAQMDAQcCBwEBAAAAAAABAhEDEiExBEFRYQUTIjJxgfChsRQVkcHR4fFCI//aAAwDAQACEQMRAD8A+ab6kM1drOnsmRkUGGroYeqhljcWYNJJq4CvA1etRt72WvBxNM+gdCfUtgQvrVHRenm/dVPvr6Tozb06+GoHFYs+XfSjTjh3KtB8PaayBIBNGXLllDhBFL77mfaqtXdgA1k1Kxm40fS6e8IKgTWf618IBQWtAH2qy3qSommHS+pmY5HpVuKkttgfQxyKg8pthWHM0RbCEZUU4+M+lgL46DjkCsjc6hbUbg0z2pKc1tVip43YV1TpaMpZMH0pb0gbQZ5mitL1QOPSrVtiSfWhyzlWlg20qYY9sNbM+lI0t07s/ZYe1KrYrT0l6dw8fcgcVbp7OJNTt2JM/dVuobYhJosuVv4Ikk0Jddc3XNvpVzjiqtHYLEtVt77SD3oYz0SS8IrvSIsK7bIp/rtIPDBAxSG6m00zB1CycqglK9jmjtUG5q5iDEYqp61ziuUVBvhlZrxhXpFWW7YpQ1FG013eignJqDmOKGiyn769rpNdVlUbAbbiBlPzFJOpdN7qM0FoeoNabBx6Vp01du8ixAaudPBk6eeqD/2ZFaZjTcgx3q5Gpl1vpkEkRI5pOhrfh6jWvUckmrRs/wD/ADyyN9xu4pzrPMxIPesl8JdR8K7E4atX1DSGd4MKazZZVka8joL4SenY8YNGajpm9MGKTEgetMLHUCIWaDYNC3WIVO0gwO4r3R3QuRM0S+qlmHrVmlQ+gJq7JJIM1rbtO0+lfK30kk7fU/nX0b4u6j4WnjAJHFYXQpIk1eOVNsqVJWUWNA3cxTTS2CveR6GoNcC8AsfYE/lQt25qH+zbdR67TVPXN7GenJjmy9sGCwWe1AXLO0n+FUafpjqdzq5J9QaJ3sMGR8xRRbg6JekvssIihOrtuhKttahFPmP3V5fTc24DFXicVK2DWx7pdPC49KXawHesdjTi0woHXptcHsaD1IhgLha2VpNqPypronxSvVoQWHvV4lU00SHJSDXv1qq40Vdo9IX9vf0rXKdIdRdd6ewti5HlNU2bYOZpzrrw/Rgo4BwfWk+nQxNJWXyHKo8Ejb71VcIolEkTVb2omfpTyNA8V1SiuqyiDrUbN10MgmrJrorTOCmqZjUqGGm6iLn2ue9V6rpwOVpa9qDii9B1Mph+K5mXpZ4nqxhryip1ZCDEEVvPhzrKX7Wx/l8qTfoyX0O0gmklzS3rFz+7mfQVnm3mS7SQ/HNH0G50ozIMqOKEWy05U0g0fxZctwLqsvvFarpGuvXhuChE/fuYH8/pQReVy0uL+w10u5C7oCy7gMjmrunW2GQrOfYY/wAxxRmo1Fi1LXHN2O5HlB9k4/zT8qssfFdtmwCDt8jNx7+wp8548Ubm/sikpS4Qu6h8LPqSGunExtGAD7kxNXN8M2LAAYJvido8xx7UyHXLOWLqWUYzP/el97qCmLqMAS/nYjzcdvbtWD+Z1ajAasF9y+z09R4flG1wcrGD6H6Yq+7Yt4XZDTAAMc9zSzWdTZyLVuM+aZjPtUX6vfVf7yDEbWjIj8xWaPW9VWq/0NH8ImroY627ZtbJNxpkAqJyMH5GvP0YOCQjHEjegH3zUU13jeY7dikM2BgnvV9x2L3UtsShAgtnnkTV/wA1zxjvWwP8LFsWX+k2XYlrVqB+19k5+n8aCv8Aw5ZYkW3ZT6HzCtJdNpg1lV3Hy7hGPrXqdGtWTcNvIxx2J/lR4/bCr/6xv6C59Im9jBdQ6Jet5ULcHqp/MUBrk3AhlCn8q+jjTK5Gdr7iFURMDvj196D610aQfFt7h2KiGH14NbsXUYc1KLp+GZsmCUD55pmMx3rupWsbvfNNdZ8OuDustvUfaEecfSgVNuCCTPvWmMJQdsR8r3Fw0kme1FaDSPdbYmAeW9AOa4XQTtQE1fphdt2XVVh37+gqTlbGRknyT6yy4t2/sIIHvS5/KPpV1tCMGq9Zg/SgjuwYycnYNvNe3LsCZzVDuYmr7Gj8u5snsK1ykojHKinxvlXVZA/dr2g96VrKqkKjROl0LvwMepxXQbS3ZlUW9kS0V8I4YruA5FT65oFjxrWbbcj901L9HtJh7hJ77e1NOmae3E27u4d0YYj1pOTIuVf9h+OEvlYq6Fo2E3CSqDM+vtTW91G40bUDTjBzVmp0q3gJkKMBF/DAp98L/DQsyxAJI/aP4TECsU5Qac57JGhR07LkE0vSjChlQ3OdhOB9TzTTX9Mv3lBYIqqIUIePej+l/Dj3HNzUQQv6tATBjgseT7VK90/fcRmuhVZcoGKkt6j1ridX7Qk5acUqRrxYVzLkyLyCbaIFIPmJlp+WaKe/ZOndLkLckbSAYicmPQCcVV1a+LN91ZZDR9CP5imp6bY1DDbAtIu5yTGJwJnucfSqpOEcj+vqaJ44uDSFNvpmmuLA1IV4g7oj5iQDQ/R+mzqRZS6zoDlhgEASSBnviaJ1GgtM92zp7K3GzueZVB/yn1/jQ3w5e1AcPasOQIEnBMEHyz60zdwdfrRg0tNDXq3SdhHhMS69j3n8jTBtNqG05tXNMdwkqxdREjPfIqOhK6jUwNyLbl2JwZB+yRyM5qz4qe4LyKm50uDEPgjEgjjg81jjknH4Xy13/wCm2OVpUiHR+mHT20F10BY7is7uOJ9qYahvCbxBuKnspEUoe5ZLgghQh2Exj02icHIpqgtsrSr7e0Hj51ky3q1PuHGR5b1tzxAFt+GrMT5iJPrgHijtTqW2MEtK3ElDn7qBTQs1shSuTliQSPp61f0vTNaLQN1wCeY3e1A3Ej8kLVq2rb28sCRzuLUM/W2dHUmCfs4nbHqas6HqzqCbtxYZSVCn3gmJ5A4n5006dprW8qEwDgng+sTzHtRRbxSvugWlNUxA1zeyjyG4cBkOR7kGhOsdGDlkaLdzs4Hlb5+hrX9T6fp7T+IwAIiD6HM5HoKS9U1ttWKm2z23AJuA7lg5HyxXZ6T2hOc1Catf3+plydPHTcTGvc8GbbW9rLz7+9Vt1QEgwK03V+m27iDeZH7FzuMYBPce9Yq90jUC+bO0yP2hwR2NdrS+U9jnvFuX6zU2nE7gjCgL03ANgLQYJHFVr8P3Gv8AhsJzk+1ae3ssJsQDHIoap6iSqGyMlqNMVEsCM0akFZHFH6rqCsIuAET3oHfppIV2UH6iqm1Pgl6twbxh7V1ef2da/wCIH3V1DpRZI6q3bJ8Nd/8AzN/KrHW/djEA8RijtJpCAwZQqjERkx6mrWfau7zAkTIGVHAAFaHlSe2/1HLG68fQW6jpyoIJO7096cCLdgqIiBwPX/WhrOi2iN8s3mJPIH1p10HRG443R4Y8x+eYH8aTKUpumxkYqCtIL+FOl+GDduGCQGM/sjjA9TxRup+IEuu1pHFpZziGJ/lRPxDeQJZtTCswLPjzQZCzXmmu2b92420FVjIGVK9xXN9odVHToW68hYY76mG9L6gNrLvZ3gqCw80DJYgAAf8Aakup1Hi31diFRBtA/djk+smtQdJbKtcUbLmzbxBI+R7/AM6UWOiBrivcWHI+yvDe/t8q4MckU2/Q3R2Qp1+vs6tHKWhvSPtGHI9RFe/D/QEKbmbduGST/XFPNf0QFlAtgRx2+80CvQENq5tdwHyADkY7D5+taI54VpVpBRlpAOnddsWybAZFVWMniZ9W+fb0ii7XWRdW5+j2wzKYBa5tB9wBOPurMdG+FCbrIWZJ83mUebOYMQK0HTPhJrV9WB3YMbgMfUcmKdk9xFv4m3RlyKcpXR3wmn6KLt68GZsbwVMqfUk/aU/vCnei0zXWLXV4b+7AHAiZPvQPUdZqbd1WZFa2rbdw/cPqCRkev/ao2+q2g9y8hc3EXNuYDzxA4j0Ix60rKpZN/wBvzYuEdKLeq6S4t7yqHDZhVgr6yO5nvSfWC6iKvmSbkkkzInAA/P8AOtX0XXXLtq2xhbkxckSds9s/LMnvVPXejsXM5UAmIklWHb3pWOemSUqrv3LnqaqP+DL9Ua7cVUt+XzSTwZHHHNH6XXKplt8nHlH4c4+tDdaCttVRG07j8jwffniitP0294qwCJBxGIxyOO9N1Q0pteQJa02k/BZ07qduywtW0J5M3GXdxPrJmnmkvrcRXJ8gyBMffS7rHRbIYqFO47TA5yYn24NGaC1ZsqwVj5ZkDIk5M+45+tZszhkeqqYeNSiqluU3tE1x9sGNxhi0wOYj1PFW2OlvaQhbnck+IQef4e1G6aAxMjOdoHHvSLqtpLq3DdfwrKsCxGTnt9aHFJtpD/URWtW9u89ogPaIkheBPYfP0o/T6kMPCkpcjyFuSP3Z+Xep9CuaS5dWzYTai5lvtPOJJOfvNE/EotW7llcSzED5Rz98V3un6vIpqDVrjfkTkwxcNS2Zk7/VNm4ny3B5YpBquoEGSZJ5ra9T0Ntj4l60XdYD7cGOzD1pHqdDpiSTbJ9hzXUlFJrujnLFq3fJlr2pZ5EQJr0W8U+azpAJm4h9CKN0PRNO4BR9/fmiU1FcBLH2RkK6tt/YFv0r2p71F+6YMmnblyCdpxP4mrHtjgEFig4kxFU6UH1gFTLHGR+MV2ruNkSkBARtJBM+47UgeGOoMwc7QDg1T8Ttdsi2inaNockcknBz3AH8av6aC99QyCPK3M/ePSYp91n4ebU3Lh3hVAgIw+1nJEZ9c/hQ5MsMUNU3V7CpqU3piY7TXL12LKlrhDTtmVbaQeDgR+P5/RejgeGwa3bLAT/diIB4HbNJl0NrRXbKqodn8niD1PqDxxOJ4p7d1C2U3iCXjcSYiPbiuB1mXXSith/T43FO+S5Wa4PJcCuuCDmT7iqb1vURst+dhlmkL5hzHp8vnQHR+vgO5XZEkgiOTxI9f9KL6b1YbiJ7HcZyD6/UflWL3bhyjW00X6PT3bmy5cuAESGb19R85/KplFVJ3m3tfLRMqfWeAeKBTqfh2LgYRnehYYn0/D8az2p+IgGO4edtpMZ3QcQpPNMWGU6a3JXNmnW46Nd8VkKqpZHiCR7+9K+rX3SypF+5v27hxKk5wRyIxBpeOp3b9xrTWYLCWDnbuWPSMzxT7pFpxi5p4gSC0EACREASMAEfOj928b1Nb7eCpNUZjU6xCg8e6z3CPsQRH0p90q3YS3ZZ7PmcSjMssTEkyMqMjJxViXbd+8b9xVKJ5bcr6/axzzjPpXp151DOiX1QrI/Vn1grJ4OPrTZtSVJNefBblaqhlqryrba+ZBtjIVskcxn76VXfigX0U2WZCpKszxgd195wfaqSLroLIYXQPKxX9r59vvoLUfD5s7EMIMkpGG3cZHePnxSscccYtPkHlk+n9dthtiW1JQnY+0H58+/4U7tdcLQYALYPlPPAX2Ez70vv9UsWERbiIZAEBMjtOOw9aY9OvW7QKM4UXDuVAJIwOCfXBjjNVkW2qKf+fJLT2fJSrXgLgvbSTbO0oHmV3GCSO8/1NE/DunizbYEJjcUAAA3CeCT5veibuoRpG5jCnGAPmYEz9aQ2dgsC2LjMbgUggFtpGcnkDHegVZF+eoNNBHUo8dNt1kWPsbonPeOaA1uhF27dkvErtxII7gx7cUN1nWO19LSrbfxF+0ZIxMk45gYo2x8M6hXn9KFtCfKqmcREDGc5+laoQUEtTS2/OCamt0Juji1bvMotPuL7Ud2ZWWT5e0gcfhTnqXRbt04WBgi47cEZgd4FU9S6ReS6+o8R3tiCwMCIxugRIHYc1ovE3gI6k2sGQcz8jgj61M2Va4zi/wDoWvakZz9J3puYDckpdHOBIPHoaQ3ug2dx87qf3ox94rQdQa1Z1Yt202JcTIiATJz8+KH1YTbDKVCeSQ0T3H3+9ehwZPeY7MUo6ZC+90Owqx43iAjjmkb9Ee226y5gdqb7bU/rNo/5xP4iih4aDJ8vqpkfzFWnJcBOMXyJP07Uer/dXlPv0nTfvn766i1vwDpXkR6G4SokQNre5q++CCTLHyCBjH+tV6BtiDzKMN5R6VbdtIBIOSFDQp/M0NhD74Ntje1xmiAJ3egE5/rtW16PYSA4MyPtHJJOce1ZX4Y0qi2d4AQt3OPlHrI/On3S9GrI6sxPcEY2g9onIiuR7Wybxx1slf8AUmKN277lDXEvFV2q5tyZjvMblo1ktXRtIZlI/ZhsfICgr3Tmt3FuBxCyGTiQw5x2NW9G1i4NuyEEEysRAOY9p7VxmuHfBsXGwm0/T9OrsqsJU8lCMc8YIIBiTR2g09rc1u0Au8TOJaf2vlFMrmrtXHAG0yMk4MekfOh9L0lLd57mzzIpCGcENxg4HEffVyyar1NhJi3rmj26cm2Tfhvs8gQcxAzGfWqvhO2LqMzJDWyQdi7SV5XmT6iJ7U30uut2kFtbYJMk7YBJn7WO812gcobrOAm8QJMGRJz99N96lDSvrYLshoulLaZ71y40sBMnIHZMDgTMDuap6z1Tw7LhZW468RlFJI3GYyew96Qde6lfvMFssDDTyZAHczjmoWel375C3Lw3RALCTPfHp6ZpsMW6nkl9iRW+4b0jVJdbbbuTtEceae5M4APypr0fpjFrrZCg4E5k4JM55E+9KNPqUXdZtWvBh9rsOS2BO45I/lWnvoReW0EOxbYJcNBwTyO/Yz6k0GZU3p4I7XIn6rpzp1Vhda23cKBDN908fKg+oXzesPeLyFUFGmZaJGfTIH1p51JxfsMQCGEQXQmZxHzisx1cXlsra2L4YYsdqtMDI3Ax3Pb0FF0q1NKXN/oLyNqLaM63UnyrTJ59e0GfpTPot0XHUXTMRt3ceXsZwIifpQSWjdPktu55O1CT7cT/ACozQ9He4wQIwyA+4RAPzrp9Q41Te37GTHKSlaGOs63Zc7FJZoIBUxk9hH2uKaWNYmktq7IyhwF2iZnJ70v6B8Ppprj3bqELbOGaDGSJGJb/AFrT6vp63D4p2XkEspxIkDEHEEDk1zp+7TSjbSNdt8mcu/FVz9JVGUJbDZ3iDEYMniZn7venJvadrnnBJBO0ifJwfxmsf8SW21N9WtWyF8oDMpi4F8xGe/aBn+D2z04W9pa2LSwS25sjGIHf09qPPjhUWtnXCIhL8S6pxfeb2+2wG1UJgAHgiefetDoupLb0KuX8yrt9cyRj0MV4nw9GlZrtpWuFWKgwGHoZIO0x7c0t+FtEl4bmVzbTs5kT8oA49u9XLRLHutlt9RfD2EXXuuo9+yFYsVPJM9uKcXbgeV7ug7xlTz91CfEvw6jzeFtkO4+YAAAjiI7Y5Ir3pF3cltjyr7WH8vzrs9FPG0owAzqXzMr1PTjO62EZhyVfn50NYsAMTBtOex4P8DQXWbIuXGaw21xyuVmPSg9N8RXbcrdUuByG7Vq0+GK1b7ml8D/kt/5a6lX/AIn0/wC4K6pTL1InfS2FUANiBHBPrXl65JYbQDI2gyfvqk3T9na7Q87pHcflU1Drg7NocTmTB9fSgDNHp+mve0+1Q24MC205wWMifbjnNanR6VVc291wjaHlxEAmOQAO3HzrKaDqjWdOzBgoG2WicbsmBkjkfdTS9qXfw7y3hcRYDKMT8x3+XPeuT7Wg5TSfFbB4OPud8S6lVR/B8ysQH2Z9u3pyR6fOrfhrXi1plF1lkkjeOACSRPpnFMer3E2KdwW2PaJn19xmst03pPiBmBOwHEcZkzXOxxU8emuHfk1RjqNF0LqLbCWgxzsX17zJH0orXa3ybVIUN5TcOck4EHiT6+tZuyLmkMqjNPCA/aJMA5xz39Jo/pnjh2W+6Q+Sqqe+cmTn6UvJhUW5dv1/oXJU6Gvwraub7m9VKFdu6IkjOPoZ+lLvifWeK3hJzPmPpHf5xir9T1JbJW2rsW5j2HtzxS7o9rfcv3R5t7wD7KB/EnFVC2tTXHBIparGfQOhIE+wCvfMZ9u/1qrq3VltjcVEIRnsBPNOTp7wtERA7z2/0rH2tOzEDephtrruJbnAI9+fkakY6nqk36lt2W9R6e63HuIpKF1YdzBAMiTxM8VoOn3LzhmKQ7JtBIOY/LmDRmitvsFwqLjBSEUEDj1Jx7UVavBUZjHllcdieeKXkzSltX4inLavBj7l+7aMncVPlAxt3E/a3fXjindjRObRysFYdvtGeBj6mlfVLpeAXcIlwGCIDgEGeMx/DimGi1AsvtFsC2537hzJ7kcEH76uXyp9ymmyzp/Txbtlt4cAcqROPQz/ABr3ysQzyGIAxyJMCdvInvXl7WKpJHNw+TaMn0MGIz61Z4TogbbLswDbQMDiSCeOMZ5pcm292VVbi34gvlnFglCpgEtBHGcDJIE1eWu2LduxYXxWghrjxAn9pj+0fakHxEpYG+hYwwVwB5fI3MYMH8+9Cav4uvXSFlLKAjcw3CQxAM/KTXTxdPKSi4vZc/UBrY0WouXTpHe6EV7dxY2mQCpXhuZmR29K91OjKsl262+2IMKpM4mDk9/vqSeEtmyoZWsIVBIM+I5MA8xyS3fNF63qQcNZQBSFGwkxPqKz5JPVUdvz1JHgpe8dTZYDym7uUuDhFU7QIMGSJ+pND9P0H6NKsC294QTjAGY+f8Ko6lrxa2qisxYyFUDdIycfnQ/R+otqrhZ8C2VK7SZzPlM4PE8A1Ja5Qba+EpJJ0iGqHiJfvEvtSYtjglcboPGZEe1LOm3psoAsGUOB3JmidbpfPqNpaGcyMiZzBFIegXC11xJEun0AnHy5rqdBG5Jp/lcEzxcYb8Bet0qpdY3AAhJhtjevzqjwNNcPlJf/ANBj76MNxvHdRqVIZifDA3bYOdxOBFXarqdm2N+zxEbG9P3hziutKPxOjJGXwpg39kWf3bX3V1V/29pP3W+6varQwtaFYSZ3GB9lpxzxgVamkQ+aQAyxuyd23irLFojfsXbJBYsBk/Mmo3l5PiADDKN8Aeox2quCUOOh2Uv2ntkwCIB+R3YB74P41tfh7TpasIUgggtJGYn1HJAx9KwnQLgS6ZMebEENHsB6EE4rS9Ns6hGt2jtKA/3Rn7KyTkRkx2Pt71zfa2NyxqV+gWJ7uP3HetuW9RZ8lxT+6HDIJHMgQTANJ7miNjCAm2xwIypPYzyD2pn1XqRRf7uXOVIEAqZ8xM8RWf1era9qU2m4+4LIAHlXiSBAiZyf9K5GPU01wjVCTi7RT1HqBvXo3G2VMbikjAiB8jRnQbiA3n3btoAk927tjMfP0NU9X+HdQzl7bBYXyoefczMT/WOaF6Vp7tkXld/tISd6hcgQCIGTHOafJxnFvUr8d/2C3lwFPpt6veZZdSFRhgmSA0+wn5c13wf1JVuPbvKUCuSC/BkzzxPePQg1DoFk/o4W7dgqwO1mwwkknieGM5PAov4g6VaVd/iNBI8k84wYbIA+6hbim8b+z+he/Bq+ofEFm2p2urFhAQGZJ+VKkv2FYrC9tzkjIYEwO8znPrSXp+htsqIqhXRwCT23Hn0Mn8qK0XTVt3HF91C+J5ewbbED65Me9JlW+/56A6Uthx02+jIVtuYBzvEEd5GMzzXmq1Kvb8OyeCQWYESwJBJwODn3xQXVepICiXFVGZgRkSP3cesgfXihPiG5cRbV0CVLEickEggH0APH1pUIavvx9ibp2Ts6VihtoWuFVwzkEMROe5g4p34Vu7ZB8oKiT2BHOayPRrOsuh3cOOYGI+UDj5d/z0htLb2DdEISUBmRg5PeD+dXmWmW9P6F12TLLOmLbLrIFxCjE5zB+7tVfUNY6q22AFG64x59gI9qp/R710hyQPMGRCMARg4/qaG1GuVdTetZbdbnAmCJHAzBz25BpccWp3zsW9uSxEN60hQC54k7sjbt7lp+7+prPdV6FbtvYtWrMgvuLKDkDtI7cd61mh6gr2E8N1VuGnhtoiM9iRSt+uPfHg2dtq8jrKiGBAMkBogSAc9q1YXOLtbJer/X6C272E3UNNqLiMwSbdvd5QIgCcnPPfuaHt9RAhbl0hjG0QIHtuMz+Fab4k6otiwtpZ33HO71IJz85wPlihr9rTlSQuQIO3Jj0P1EQa0RcZRTlwHjjaujIdN6mf0ouxkrcgkn9kHZ/wDWfurVL0x1N17QARyHDqeQMwCOPNJ95pWPhRrjtcKbWdpALAz6yM9++K1qM9i0qbN5WAFTuNuRLRj3/nU6jNjaqL8CFBqbZjtVrXS5d8UglpI82QIgTjFKvha2Gd3wfNP+Qc/eaY/EvTrRVH2kM64hswMwR9eaF6Lp0TTOxPhgrsB/dLnB9zBBrqeztMt0TqZtwoSdT6jbtqyWcl8vc/eJMwPYfjXnwvfuMTaCzaf7cn8R71LqXw3dt5UC4vYr+ddpOrGzaNsWyrDvBzXSdNbGNWnuMv7Eserf5q9rMf2nc966h0y8hal4NZbCMCWGNsCCxJ7TnvUb2kAX9UI2Y8uQZwDmrdLqWL5LZDAKSo2x3gT/AEKFKGEMXCSCpUt69/el0GQR2t3N7JBiTC8Eeua0P9pmywuEeW73BJ2snByZhlx/6ay/iEY2tuNsjaXOCPf196cdMsjU2TYJhiAVMztI98H/AEmqnjWXG4MpvS0x7pNeNQ2wlgrHJB2zmCJ7/wCop5CWNwTBwAJ59BS3oXTbqIilVCTOT5lEcREc5qHWwLuoRlbbctg5mQSDg4wcEyPp2ry+WFzaukjdjWp0hzrrl57XltgkEH0POYyIO0mll1mvBXtIAwkf3oOSMcdooTqXVrl2+bQutbCbZWYLA8kgH2itL04gAeXHr2pMk8ai3z6+PAVUZm/rXJKXgjNbbamMlnXt6/QffyW/SdFduALfWQPssWyB7j+NS6501dQ67BLoMOIyZnn2j8aPLLbQLccLt2+YtIJnKk4z7e9XlyakqX+voRcA40lqy5tPcM3DKbjwVjj0gkRx29aGGg2BlvXBdJMhyBg9jjA+lNLumtM5uKV3ldslpgDtk4yf6iguj6e6pveNc3opO2QM4mZ78xQyuUfh9PxAp0B9c1IG4eCOFAuSPKTyT39IifpReuO4WwHt+CBtfeeZHb3wBn3pf8TuLmmF4AyjlSqmNwnMfQYNItLrBqAtu1aOzbgdw+CBjERxHvPatGLC3DV45KbT2N/0nS2rFiVJhsKWMn2559aT9aZ2QFGFpYhnYjOfsgQeT8vapWtDeuC2l64E8v2F+1Hc7pgRicH55rP/ABtoBvsm1aueHu2tAIUtO1TIHJYmW+U1MePXlSYPAy0fWG09p/GfdBiQu3ECFUE9z796Y9E1Nq9F22dxAgr3B/r6Vgeva17rC1cUJ4R87AzM/ZLRwY4AmZMelD9G1j2yVthtziAdpMSQAY7jPNa5dDePU3v9qoNRuNm2F2y6sTYNtASzK4A805ESckzJ4M95p5btWLFtbqW1ChfKEUHkTjaOMRS/WdMXwlNwktbBIKnO6JJiYMe896j07rVnZsQi66jzKksRJiYGP65rBJOW6T/WgexaoS/cW+3mVB5fTMEk+9D6rSWb197SKpeQzCYgYO4fl86v1F3xbey2VQEH1B9CJIqvQ6BLYtso2ACZDcDkiR65zNApOKbbfp6B7FFu2LF29cbcFMRuJZzAM7eTt/kfSj7mmK77/iFkK7ggHCxyO5PJNd1xVubHBO4Dy8EHdEgnkT/U1ToLxVTuOxLfJfG2c4ntUbUnbVtlW6EHxJqkS2HVLdx3hFM8Ce49BJJpdq7Vs2ls3LZK5JCnzKf2SB3717a0yXdS1xVItrnHf5D8h71VremLeum4C+8D9lvDOOBnBj1r0vQYVixX3f7GTLJylXgXqgtA+Dqtp/cvAj6TxXmq6leWPHsW7iDhl7z7iq7vVRaYJc0xLjk3DJP4RNMR8SWHH23TtsmPwYH8K2790L2fcW/2tpv9xc/zD+Ve03/SLf8AvLv+Rf8Aprqqy69QaxZZWkNDhzOy3jJ/eJ/Ec0YNI0+Y3Glh5twxPI9fpULLpvHkN0bydzMT24AgAcVauqkEi2Nu8ysAH0nLflVFoX3enXFYAG7+3J8sZ4zPHtVOium26HttgsWHY+3Me3amGmuKwUbECyfKwG44kxn50J+inYsIpBRiB5ARPfFRPuU9x31XQeNaS547Iqk7lmeM/KB6mSRHvRfQr3g3QbxVkK7AYMndkyP2cLM/Pik/QOolAF5baJXEMP3ZAiV7H/WtFqHki4i+LaupBM+a2R8x+B4+VYev6dyj7yHHdf3DxZHF6WV63pa2tWGWIYEyRJYE8z/y8f8AqorqVhxcU2nzt86mYycNHtRGk0QuIrb2eBADAA5+4dqv0F9rqgK0jzCCBIIMTP0NeeyZLd/Y1psj023G7xWG5jhUniI59zn60ZqNMwWAARyA3r6k817ZvWrZuXWIJTy/WJ+g/wBaBHUdyai41xXlfIUBIEgwBzOe4xS1jc2muS22C3y9pwzKChhXiIHoY5if6xRej6ZvXLAkkkG3gZ9M8xilumvtqLKsBNwSregzwfXEVf8AC67Ld92IIUEe8wZH0wKNwbVcNclvYv6gvhWIXaoQqWDHKiYJgc5z9DSj4e6zp1faC1y5keIABIJ5GfxHpRup07vZuBVLgqQ3qQw98n+NZz4S0Ra5gAFQRBGQafhUXilfJFFN7mxs9Zs+K2TbJAktmQOTPYUo6r8S2rN1LQfxFcy5U7gCSNpEYExBHy+plzpLkSCcckDINL9Z8NFUcL9i5yY4PY/fV4VjUvisGcV2El1xqL9y5aQlH7gQcAFWMke+PliieoaxbO3AJW2GUkTLKV/HLE/M+lLdBdfTsxVGbwwdzLELjIk43d6qX4gQ3txU9jn7RMmSD9mYJxP1xXWniukt0l5DhN0oscfFHXbv6Pa2uFuXA2+MQIjAOR8+ah8I2GBDW9vjOpYeaJXEAeo4MfOqNS1vUaiwUcbd+0wuZkHPsQO/oea29jRW1feAPEJI+yO/8IrBnnHHiUaq+f8AYEko7IU9d6IzafB3XLZ8Qg44EED3ilnSbDHZLG2lwqptk8gBiYEn7RNbLSEzsbdicnP4/WsvqBeS9fu+QKDIMZMYBnjjv9KRgzNwcH+eiJbW33Ctfqbnm23IZWHk2jAHYg5yO/aO9LOua+6zhVBbxFjbMx/pms7/AG4xuk5uXXJzxMcL6Yz8s090xNlXvXZVyM5JCT6DuT8o5NdDpugk5LV8qE5MiS9TtIhsFLCXE3ggtuOTg8YzHfPPypO13UHdb3W7qScnEc9+RFe9T1CbsXGmQQRtYAkcQcgfKh9bpgrhrCpvGSQ+1ieTgGuw2r2M9UgqxZBtg3b5hmhc8AYkGJImo2jp7bMrbmuLibw5J4jb2980q6tdW6d165ct+qvb3AfJlxzV1h1dQl67adRhXFwq4A4+70NWogth39oD97Tfc1dS7+xdL/xD/wDuJXUVIq2a23YJEEXN0mGAgcYHbHEUHpBs3K58Qznz5BMHkdx6UZY1SELuuBkBZ/KhM+53kkZ+/FDX7STbuWt215aCvEERMcfWkZVLTceUG3sAW3Q3JBYLvaM55NGtfACgHJBhg5Y8kEcR99KNQkKQeQxbjsxmpaLWBrm0iAiGfMeTnjis6yOKkvFilkptMLcKNm6VK4DkzmewAye8mmHROquGuFDOdrIQAGAwCI79w3vmlS3CQSNxk5CBZI4yXxH41FtqZSEO7agD7pPcsAIrVhyaophfOrRtNFdHhubDNABJBJLKQONv8RPI7UBoNa9hrTXrhCvLIBnbxyFAjmYzS3p/UVc+Rtt0DJHbOQZ5FNrurW6dt3bacEEOPsMR8+Cf6NZOo9nQnc8S55X+AseenUhvo+pJdcqo3EEcoQDu4+0M15rOn2rLl/Fa0n2XUHyef5mBEgfWh7nVG06qzWmd4OcBZA9Vmq9T1y3qEW2IZngXLbAeYCNxmDxzjnA+XCfTZMcuGvKNscifAD1XqSIsWnFu2rDYqA5AMk+/H1+tNVvlypG5UYB2iQcfkOKXXul2ls+LaRXAMxcdjADZjkTggfSjtB1S3cfxrbOjokMG/VsJyJ4DzH+oq5xTinFeb/2NlNPhDXRWylvxASWuHcAScL2A+lVFVtXjcCSHg3F7gfvAz7dvnUeodYAs27pUqGIAt4JInEZiI83NIrfxG93fCW2SWC7jBG3BBzzPaghinba4Fq5PY+gdNZWXyHcp/wA3+tIPj/rqaa3EEs3CQSSByQPb19SKzGp68bRtWtLm4y7mCsCFPo26e/1xUdXpruoZhqHm8i8NtUKAew7jk95963wjSjaBjBuV3/UA0d7x7IWQAzS4VSwmZhyBgT2++jHsJ+re0reigAH6A4/Klvw2t27fNtrpa3bwQsRngeUZgDivo2hs27fnKqsDk+3ypeebhPTf68WVUt2YzpPQWtOQylA7qwG4sZXK52gR9/4061Gquh3XaAGAhgTuOMjEbfWatf4u8a55bClOQzMAwjAgehE8e9Adf6xtXfAUjtyKTmjkc/NhQqtyjpPxBcu7rYZka3JUsJ9gOM98e1LbHXQbfgm2fEPlPJ4yT7RnnHFWdOt3b48VR4KTLNcwAe/f7hEn0pommtJLL5Z+3cIhnPHlXsMDnPyrqdN7P1O5ql+onJmjFUt2K9F0e3aL3iRvPmJaItjnJ9fb7+Mw6hqoNzddW0qoCGNyC288sAJzwKnqupB1NsKEBfailZJggk8iPnQOpfxD4bBE3MAAqTCocySfxzxXVdKOmPCM8bu3ye32zst7bZMBjvJkAZOVI70H1I2l8507XQMC4uxwe37ImasN67JlmUgAiGW2FBc45Men0qq7vuElbEn/AHlt1b7wINBFBtkL2rQWz4aPcU5cIVx7FDLCPehdBr9IWj9GbceJti5+AimD2Tbh2sKHGcl0/wDkNw/EVQerOqzc0o2zO625Ij3gx98UcUA2X7rH/BN/7A/6q6q//EVj/d/n/wBddR0/BVoY6zSDe4liAqKZIkyMmFzyf5VC7Y8MRLjG37RI/wDl3+dGW7JILINpDsxBaZgGOCPnSuxrC4IJQEknII3z6E9qw5I27TaJkVK06KNhIILCTAmORxB/nUen2dvjEyfPHHYD+jRi9PMDcrNzJXb29PNNddDeHhLi+X9sfxGJFIq01aZn3adi1zLKIkk4xIwP5kUZqdY+ntqIG8iRLSw3ZmF8senM0F4Y8eGEhFPcc/4e/YUGNT52ut+xxj9rhRn05+QrTCLUaQam4xUVyx/pdEFKAmWX+8uNuXBKnBnMZHFF9O1hYQwBwC3AAnIH2jJj0rM29eStwXIIMAAqBuE8YMx86ZdO1SrbYEw7QMY2z6HsAPnxTYz0tJDGovY1egush8jAj9x8j6dx9Kq/R7W5jsawzCNyncvvwMfPH4UJYB2hkYeYsF3zLECZCiWbIMSRjjnB6asqhuOrKgj7S7ckxAElpn2p793kVTQOmcHaYC/RtRbs+GkaizumEaMffXdI6mNMXV7bIpHD9j3NN7XhkyAVJ7qSp/CDVroxz4gcDtcUN+MA/WazZPZ2Oaai2rGLqZLZiU/FQGnuMT4x+0u4AIO2wADcD8+5nHAotBDav37gU3DbzbUEIMGAAMzAA3c+kU3vaBWENp7TepUlSfz/ADqh+kWJM6dxIg7bvP4jHtSv5bKPytck9/FmV+G7NsDxi224D6/Zz+Pv861ei6lbvDddtI5Xy7yQS3vBGM9qFX4a084090CeN6/9VWr0CyD5dMYkHNwdvlOfeqyezpTdt/uN/ioKKilwB9H1On0eqZVUotzMEwAcxBJ+n0pr8W9ce9be1p1JYrA2wST2zwBVq9NEhvCtA+rEufx7USbbRBuQPRFC/wCtWvZSc1Obt/vQt9UqpIyPT/h3VrB1N23aX0I835gzPoDWi0ehBA8huMDi5dwPmE5P1iameoae02BvuHEjzH1yTMfWlOt+Ib1xyqIUh4aDnbt3AgxGfT8a1+7xQd0rA1TlsMOrdUtaeDcbxLg4GPLPooworK6n4hF2GYhvtFQBnMrOTAxRGk0DlGcsdlwk5BJgAmCO0n+dUJ0i02duxLahiytLHdgyq5Hm9u1VLI2HGFHWrh2tDILa2/LttglSw5hT9Iq+xpAJDgFAgAhEXmO7H1qg9GASd4IuYUEFtwnE8GJ9YrzU6W7Yk7LbyInZMFY7nB9uc/KhsKi+/ZVS6te8gUYtsgAgjJKyZn0z2pfa1Fi60PfVxO0b1Kv9HUZ+Zpibl5QXJtoGH2bihsng4XE+nv2oc6AMguPZtMx/aIdFj6/lVplNBFjpGwnwr19D2AYGfdZJVvkM+1CWdMLpfddJuqYL2x4dwDg70MBvzq+xoGttutkGww81vcNoI5KlyMekDFR6j0wXTvN5UYcPvlo9CV+3+dXZVehL+ybn/FL/AJBXlC7bn/EH7m/6K6pZKHBfTpatMbgy8gm3t3E4OAds89qC61eFvYr2yxMbiTkKSeAIG6BweMVV4u8WNgEQTtABiDH4HNBda1KnUeGxkbdsn3zJ7c4+tLkr7Em6iWt1E28LcwIME/ke9X6fr7FQJEHgng+08Utfp6bswQPePmAeIr0DT7dsLAzBzn7zWf3ML4MUnDtYXqbe1naIDjGBg8tkcg4P30p8LdttmNuXf8gOfTj50xYo87XgtzB5MciTg8exoL7IuMRl2P3DC/h+daIqtiav/SKreWZo8qCQo79wPwJJpp01EZWuSRawzEDzMxztnt/AUkts24W15ODPq8CPy++tBrWW01u1E27Y2ufcwSxqnyOx+A/UdTPgqbKors2GXO0REA8zM5596u6rqvD8XwJV9igPPExAE8YJ/E0BZVlZVWPDII+pMgj1x6U2u9P3W2b9qQY7+XIn2mPTFGmaa2F69QcKE3s43om4scgFQ7DMyTP+Wr7HxEwe5htobG0TydoEHk/I+tKOq9OZlRFktOYB5yPuBz9KP1eg8O1O6Lu3IHIJEFvYn+NEm0C0mMLXXr26FFu4swTv2R6Ahu/1ozTfEIOHCoZj7czHPA4nvWK6B09yHuGRa2kkjvjA+Y5n+dTLSgMHYzSD3BPPb2nmm65J1YrRBq6Nr/4ityApViZAEkcCe4/qRVa/FEg7UHcEz6Ak9vaPrWN6kGZQwA8S2R3+ob60ZaYsBc9SNwGR6Ej7x99BLLKrsNYo3wOdH8QX71pbi7FloMCYHY5Mf96EvXrzG/4lxmC2yYnjJAxxx+VV9KubU1G47VwBPqp7D8ag3VV8G6QYdogYPGcj5/xqvikyJRijrcjTguf73aZ9twx9RNF/D9l2sqXOXIJP+Hk/Lt9TWf0nV5f+9naftFeZ/l7VotF1hLgbaYG0IBgRu9j8vwqpY5IKM4slpNd4oW2CVNticY8sGSYyJxVL6k+EfFAIFshyR5iVueYSIJwV55NDtqLGlBE7rjMN7The4H5Vels3rT7yB4is0AEQpKCc/wCE/fVVReqwyy48Q3LY/ulTyghQGLL5VDHIM+8VK1fhACdpBm4GKqRPmJZY2tGFBiZmqb93w9OGsINtsf3YIwTwXg8x2+c0s6z1MbZZfEW63mJ52hYADDMiSczyaijZblRbZ6sN8ltouTtI27QR+7cTg+zqRxnvS7Vanw7hnU3kuT/+VSU+XlJBx3zVGlv2YZLQ2M2Qt2HtsR7kDae01K71C5bhbmmAkR5t2z6Cdv3UzQ+EL1qtx3pLgcTcZV7i7ZbBP/Oo7/MRUNat9lDC69wDg2YPtJWfyFLdD1+wv/4fDbA3LkQMSAfT61JrrSxGuJGYG0n7ztoNEk+AtSojs1H++u/+1XV3jP8A8cv+Y/zrqvSytSLfhn9XZ+V38xSr4t/2l/k3/wBa6uqL5ipfKear9SvyFD2uK9rqUYV3J3PtL/iH8KI1X2R8/wCVdXVFyQq6R/tK/wDmL+Ypzrf1t7/Ga6uqnyasXzMdfDP6i38v502T9X9R+ddXVF8xqE6frP8A1j8zQn/7N3/Av511dTewHgE6d/st3/EPyFVdV/2az/irq6j7i1wyxv1tz/yh+dT6D9lf8X8TXtdSpjYirrvNz/Gfzpan8K6urTj4M+QIH7X+GqE5HzFdXU2QqPBev68f4v51sL/2v/5z/GurqzZDRjLbf6hP/LNZPWf7Nb/xH8jXV1DHkOXH2FVn7Q+dbLoP+zv8zXtdT58CYcmL1n6xvn/GuPf5iurqIp9zq6urqsE//9k=" alt="potato" onclick="openPopup('videoPopup5')" style="width:100%">
+                    <h3>Lemon Rice</h3>
+                    <div class="icon">
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <button style="float: right;" ng-click="saveItem('Lemon Rice')">SAVE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup6">
+                        <div class="popup-content">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/Hs5YibgKdUo?si=siS6YGoO7jMFp0lW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup6')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://t4.ftcdn.net/jpg/04/02/39/73/360_F_402397382_0uvVDcFthWHH3ZBQVfx1jFXvzitFd2LU.jpg" alt="poha" onclick="openPopup('videoPopup6')" style="width:100%">
+                  <h3>Sambar Rice</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Sambar Rice')">SAVE</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var app = angular.module('mealBestow', []);
+        
+            app.controller('BreakfastController', function($scope) {
+                $scope.saveItem = function(itemName) {
+                    var savedItems = JSON.parse(sessionStorage.getItem('savedItems')) || [];
+                    if (!savedItems.includes(itemName)) {
+                        savedItems.push(itemName);
+                        sessionStorage.setItem('savedItems', JSON.stringify(savedItems));
+                        alert(itemName + ' has been saved for this session.');
+                    } else {
+                        alert(itemName + ' is already saved.');
+                    }
+                };
+            });
+
+            window.onbeforeunload = function (event) {
+                localStorage.clear();
+            };
+
+        </script>
+    </body>
+</html>

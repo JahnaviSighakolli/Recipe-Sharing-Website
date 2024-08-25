@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mealBestow">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meal Bestow</title>
+        <link href="styles.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a760d5eed3.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <style>
+            *
+            {
+                box-sizing: border-box;
+            }
+            body
+            {
+                background-color: #f1f1f1;
+            }
+            .popup
+            {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border: 1px solid #888;
+                padding: 15px;
+                background-color: #fff;
+                z-index: 1;
+            }
+        </style>
+        <script>
+            function openPopup(popupId)
+            {
+                var popup = document.getElementById(popupId);
+                popup.style.display = "block";
+            }
+
+            function closePopup(popupId)
+            {
+                var popup = document.getElementById(popupId);
+                popup.style.display = "none";
+            }
+
+        </script>
+    </head>
+    <body ng-controller="BreakfastController">
+        <nav>
+            <ul class="navbar">
+                <img src="Screenshot 2023-08-27 105735.png" width="150px" height="150px">
+                <li class="search">
+                    <form name="sform" action="#">
+                        <input type="text" placeholder="   What are you looking for ?" name="search">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </li>
+                <h1 style="padding-left: 150px; padding-right: 0%;">MEAL BESTOW</h1>
+                <li><a href="home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fa-solid fa-utensils"></i> Recipes</a>
+                    <ul class="dropdown-content">
+                        <li><a href="breakfast.html">Breakfast</a></li>
+                        <li><a href="lunch.html">Lunch</a></li>
+                        <li><a href="dinner.html">Dinner</a></li>
+                        <li><a href="desserts.html">Desserts</a></li>
+                        <li><a href="snacks.html">Snacks</a></li>
+                        <li><a href="beverages.html">Beverages</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+                <li><a href="upload_recipe.html"><i class="fa-solid fa-upload"></i> Upload</a></li>
+                <li><a href="save.html"><i class="fa-solid fa-child"></i> Profile</a></li>
+                <li><a href="index.php"><i class="fa-solid fa-user"></i> LogOut</a></li>
+            </ul>
+        </nav>
+        <div class="row">
+            <div class="column">
+              <div class="content">
+                <div class="video-popup" id="videoPopup1">
+                    <div class="popup-content">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/CD7igrXVgVE?si=a7asJzNMIdEjNWKQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <span class="close-btn" onclick="closePopup('videoPopup1')">&times;</span>
+                    </div>
+                </div>
+                <img src="https://i.ndtvimg.com/i/2015-09/lemon-tart-625_625x350_61443595187.jpg" alt="lemon" onclick="openPopup('videoPopup1')" style="width:100%">
+                <h3>Lemon Tart</h3>
+                <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Lemon Tart')">SAVE</button>
+                    <button style="float: right; margin-right: 5px;" ng-click="shareRecipe('Lemon Tart')"><i class="fa-solid fa-share-from-square"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup2">
+                        <div class="popup-content">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/UxN5pxOB6IY?si=14lbpIsVhRdolB60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup2')">&times;</span>
+                        </div>
+                    </div>
+                    <img src="https://i.ndtvimg.com/i/2015-09/chocolate-truffle-625_625x350_61443595923.jpg" alt="truffle" onclick="openPopup('videoPopup2')" style="width:100%">
+                    <h3>Chocolate Coffee Truffle</h3>
+                    <div class="icon">
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <button style="float: right;" ng-click="saveItem('Chocolate Coffee Truffle')">SAVE</button>
+                        <button style="float: right; margin-right: 5px;" ng-click="shareRecipe('Chocolate Coffee Truffle')"><i class="fa-solid fa-share-from-square"></i></button>
+                  </div>
+                </div>
+            </div>
+            <div class="column" style="padding-right: 0px;">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup3">
+                        <div class="popup-content">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Q3J940j98FA?si=QbS9oUJ-QlwaII6d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup3')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://i.ndtvimg.com/i/2017-12/gulab-jamun_620x330_51513836655.jpg" alt="jamun" onclick="openPopup('videoPopup3')" style="width:100%">
+                  <h3>Gulab Jamun</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Gulab Jamun')">SAVE</button>
+                    <button style="float: right; margin-right: 5px;" ng-click="shareRecipe('Gulab Jamun')"><i class="fa-solid fa-share-from-square"></i></button>
+                  </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup4">
+                        <div class="popup-content">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/vwFlwzc3a9I?si=cbwDwXmftn1MT-8T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup4')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://i.ndtvimg.com/i/2015-09/chocolate-mousse-625_625x350_81443596685.jpg" alt="mousse" onclick="openPopup('videoPopup4')" style="width:100%">
+                  <h3>Badam Eggless Chocolate Mousse</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Badam Eggless Chocolate Mousse')">SAVE</button>
+                    <button style="float: right; margin-right: 5px;" ng-click="shareRecipe('Badam Eggless Chocolate Mousse')"><i class="fa-solid fa-share-from-square"></i></button>
+                  </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup5">
+                        <div class="popup-content">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/qGjOb_caCkU?si=yMbIon15sh4gmZe7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup5')">&times;</span>
+                        </div>
+                    </div>
+                    <img src="https://i.ndtvimg.com/i/2015-09/tiramisu-625_625x350_41443596307.jpg" alt="tiramisu" onclick="openPopup('videoPopup5')" style="width:100%">
+                    <h3>Low Fat Tiramisu</h3>
+                    <div class="icon">
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <button style="float: right;" ng-click="saveItem('Low Fat Tiramisu')">SAVE</button>
+                        <button style="float: right; margin-right: 5px;" ng-click="shareRecipe('Low Fat Tiramisu')"><i class="fa-solid fa-share-from-square"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <div class="video-popup" id="videoPopup6">
+                        <div class="popup-content">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/H2FnGm75ImY?si=1HO9qADufmZNEiHF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <span class="close-btn" onclick="closePopup('videoPopup6')">&times;</span>
+                        </div>
+                    </div>
+                  <img src="https://i.ndtvimg.com/i/2015-09/apple-pie-ice-cream-625_625x350_81443595158.jpg" alt="pie" onclick="openPopup('videoPopup6')" style="width:100%">
+                  <h3>Apple Pie</h3>
+                  <div class="icon">
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <button style="float: right;" ng-click="saveItem('Apple Pie')">SAVE</button>
+                    <button style="float: right; margin-right: 5px;" ng-click="shareRecipe('Apple Pie')"><i class="fa-solid fa-share-from-square"></i></button>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="sharePopup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup('sharePopup')">&times;</span>
+                <form>
+                    <label for="username">Select username to share with:</label>
+                    <select id="username" name="username" ng-model="receiverUsername">
+                        <option value="" disabled selected>Select a username</option>
+                        <option ng-repeat="user in allUsers" value="{{user.username}}">{{user.username}}</option>
+                    </select>
+                    <button type="button" ng-click="shareRecipeWithUsername()">Share</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            var app = angular.module('mealBestow', []);
+        
+            app.controller('BreakfastController', function($scope, $http) {
+                $scope.saveItem = function(itemName) {
+                    var savedItems = JSON.parse(sessionStorage.getItem('savedItems')) || [];
+                    if (!savedItems.includes(itemName)) {
+                        savedItems.push(itemName);
+                        sessionStorage.setItem('savedItems', JSON.stringify(savedItems));
+                        alert(itemName + ' has been saved for this session.');
+                    } else {
+                        alert(itemName + ' is already saved.');
+                    }
+                };
+        
+                $scope.shareRecipe = function(recipeName) {
+                    openPopup('sharePopup');
+                    $scope.recipeToShare = recipeName;
+                };
+
+                $http.get('get_all_users.php')
+            .then(function (response) {
+                $scope.allUsers = response.data;
+            })
+            .catch(function (error) {
+                console.error('Error fetching usernames:', error);
+            });
+        
+                $scope.shareRecipeWithUsername = function() {
+                    var username = $scope.receiverUsername; 
+                    $scope.shareRecipe($scope.recipeToShare);
+                    var data = {
+                        recipeName: $scope.recipeToShare,
+                        receiverUsername: username
+                    };
+                    
+                    console.log('Data to be sent:', data);
+
+                    $http.post('share_recipe.php', data, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(function(response) {
+                            if (response.data.success) {
+                                alert('Recipe shared successfully!');
+                            } else {
+                                //alert('Error sharing recipe with ' + username + ': ' + recipeName + ':' + receiverUsername + ':' + response.data.error);
+                                alert('Error sharing recipe with ' + data.receiverUsername + ': ' + response.data.error);
+                            }
+                        })
+                        .catch(function(error) {
+                            console.error('Error sharing recipe:', error);
+                        });
+                    closePopup('sharePopup');
+                };
+        
+                window.onbeforeunload = function(event) {
+                    localStorage.clear();
+                };
+            });
+        </script>
+
+    </body>
+</html>

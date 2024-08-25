@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="mealBestow">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile - Meal Bestow</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://kit.fontawesome.com/a760d5eed3.js" crossorigin="anonymous"></script>
+    <style>
+        /* Your additional styles go here */
+        .user-details {
+            margin-bottom: 20px;
+        }
+
+        .user-details h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .user-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body ng-controller="ProfileController">
+
+    <nav>
+        <!-- Your navigation bar goes here -->
+    </nav>
+
+    <div class="container">
+        <h1 class="animate__animated animate__fadeInDown">User Profile</h1>
+
+        <section class="user-details">
+            <h2>User Details</h2>
+            <p>Name: {{ userDetails.name }}</p>
+            <!-- Add other user details as needed -->
+        </section>
+
+        <section>
+            <h2>Saved Recipes</h2>
+            <div class="box animate__animated animate__fadeIn">
+                <ul id="savedItemList">
+                    <li ng-repeat="item in savedItems" class="animate__animated animate__fadeIn">{{ item.name }}</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        angular.module('mealBestow', [])
+            .controller('ProfileController', function($scope) {
+                // Retrieve saved recipes from local storage
+                $scope.savedItems = JSON.parse(localStorage.getItem('recipes')) || [];
+
+                $http.get('get_user_details.php')
+                    .then(function(response) {
+                        $scope.userDetails = response.data;
+                    })
+                    .catch(function(error) {
+                        console.error('Error fetching user details:', error);
+                    });
+            });
+    </script>
+</body>
+</html>

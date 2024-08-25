@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    
+    <style>
+       /* home.css*/
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color:cornflowerblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* Logo styles */
+.logo img {
+    height: 40px;
+}
+
+/* Navigation links styles */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.post-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.post-form {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+#post-text {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#post-media {
+    margin-bottom: 10px;
+}
+
+
+#post-image {
+    margin-bottom: 10px;
+}
+
+#post-button {
+    background-color: #1877f2;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+/* Add styling for media containers and media elements */
+.media-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.media-container img,
+.media-container video {
+    max-width: 100%;
+    margin: 5px;
+}
+/* Add styles for the liked post */
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.post.liked {
+    background-color: #f0f0f0;
+}
+
+/* Adjust the styles of the like, comment, and share buttons */
+.post-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.post-actions button i {
+    margin-right: 5px;
+}
+
+/* Style the like button when liked */
+.post-actions button .like-button.liked {
+    color: #1877f2;
+}
+
+.like-button.liked {
+    color: #1877f2;
+}
+.sub-menu-wrap{
+    position:absolute;
+    top:100%;
+    right:10%;
+    width:320px;
+}
+.sub-menu{
+    background:#fff;
+    padding:20px;
+    margin:10px;
+}
+.user-info{
+    display:flex;
+    align-items: center;
+
+}
+.user-info h3{
+font-weight:500;
+}
+.user-info-image{
+    width:60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    
+}
+.userpic{
+    width:40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 30px;
+}
+.sub-menu hr{
+    border:0;
+    height:1px;
+    width:100%;
+    background:#ccc;
+    margin:15px 0 10px;
+}
+.sub-menu-link{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+    color:#525252;
+    margin:12px 0;
+}
+.sub-menu-link p{
+    width:100%;
+}
+.sub-menu-link img{
+    width:40px;
+    background:#e5e5e5;
+    border-radius:50%;
+    padding:8px;
+    margin-right:15px;
+}
+.sub-menu-link span{
+    font-size:22px;
+    transition:transform 0.5s;
+}
+.sub-menu-link:hover span{
+    transform:translateX(5px);
+}
+.sub-menu-link:hover p{
+    transform:translateX(5px);
+}
+
+/* pro.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+}
+
+.dropdown-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f2f2f2;
+}
+
+.show {
+    display: block;
+}/* ... Previous CSS code ... */
+
+.show-dropdown-content {
+    display: block !important;
+}
+ 
+    </style>
+    <link
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet">
+</head>
+    <body>
+        <nav class="navbar">
+            <div class="logo">
+                <label class="logo" ><span class="fas fa-utensils" width="1000vh" height="100px"></span>RECIPE SHARING SITE(BATCH-04)</label>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html"><span class="fas fa-home"></span>Home</a></li>
+                <li><a href="friends.html"><span  class="fas fa-users"></span>Friends</a></li>
+                <li><a href="messages.html"><span class="fas fa-comments"></span>Messenger</a></li>
+                <li><a href="search.html"><span class="fas fa-search"></span>Search</a></li>
+                <li><a href="help.html"><span class="fas fa-question-circle"></span>Help and Support</a></li>
+                <li><a href="about.html"><span class="fas fa-info-circle"></span>About Us</a></li>
+                <li><a href="profile.html"><span class="fas fa-user-circle"></span>Profile</a></li>
+               
+            
+            </ul>   
+        </nav>
+        <div >
+        <div  style="background-image: url('rb4.png');">
+            <img src="" width="50px" height="300px" style="border-radius: 50%;">
+            <hr>
+        </div>
+                </div>
+                <hr>
+        <div class="post-container" style="float: left;">
+            <div class="post-form">
+                <textarea id="post-text" placeholder="What's on your mind?"></textarea>
+<input type="file" id="post-media" accept="image/*, video/*" multiple>
+
+                <button id="post-button">Post</button>
+            </div>
+            <div class="posts">
+                <!-- Display posted videos/images here -->
+            </div>
+        </div>
+        <script src="home.js"></script>
+
+ 
+    </body>
+    </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a760d5eed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <img src="Screenshot 2023-08-27 105735.png" width="150px" height="150px">
+            <li class="search">
+                <form name="sform" action="#">
+                    <input type="text" placeholder="   What are you looking for ?" name="search">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </li>
+            <h1>MEAL BESTOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+            <li><a href="index.php"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="signup.html"><i class="fa-solid fa-user"></i>  Sign-Up</a></li>           
+        </ul>
+    </nav>
+    
+    <form action="login.php" method="post">
+        <div class="split left">
+            <div class="centered">
+                <img src="https://www.seoclerk.com/pics/502447-3jpPhn1483443794.jpg" height="750px">
+            </div>
+        </div>
+        <div class="split right">
+            <div class="centered">
+                <div class="inbox">
+                    <img src="https://cdn0.iconfinder.com/data/icons/user-interface-vol-3-12/66/68-512.png">
+                    <p>USERNAME &nbsp; <input type="text" name="uname" placeholder="Enter Username" style="border-radius:5px;"></p>
+                    <p>PASSWORD &nbsp; <input type="password" name="pswd" placeholder="Enter Password" style="border-radius:5px;"></p>
+                    <button type="submit">LOGIN</button>
+                    <p>Don't have an account? <a href="signup.html">Sign-Up</a></p>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

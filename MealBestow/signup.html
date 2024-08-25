@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a760d5eed3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <img src="Screenshot 2023-08-27 105735.png" width="150px" height="150px">
+            <li class="search">
+                <form name="sform" action="#">
+                    <input type="text" placeholder="   What are you looking for ?" name="search">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </li>
+            <h1>MEAL BESTOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+            <li><a href="index.php"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="login.html"><i class="fa-solid fa-user"></i>  Login</a></li>           
+        </ul>
+    </nav>
+
+    <div class="split left">
+        <div class="centered">
+            <img src="https://www.seoclerk.com/pics/502447-3jpPhn1483443794.jpg" height="750px">
+        </div>
+    </div>
+
+    <div class="split right">
+        <div class="centered">
+            <div class="upbox">
+                <h1>Sign Up</h1>
+                <hr>
+                <form ng-controller="signupController" ng-submit="validateForm($event)" method="post" action="signup.php">
+                    <p>USERNAME &nbsp; <i class="fa-solid fa-user"></i> &nbsp; <input type="text" ng-model="uname" name="uname" placeholder="   Enter Username" style="border-radius:5px;"></p>
+                    <p>E-MAIL ID &nbsp; <i class="fa-solid fa-envelope"></i> &nbsp; <input type="text" ng-model="mail" name="mail" placeholder="   Enter Mail ID" style="border-radius:5px;"></p>
+                    <p>MOBILE &nbsp; <i class="fa-solid fa-mobile"></i> &nbsp; <input type="text" ng-model="mbno" name="mbno" placeholder="   Enter Mobile Number" style="border-radius:5px;"></p>
+                    <p>PASSWORD &nbsp; <i class="fa-solid fa-unlock-keyhole"></i> &nbsp; <input type="password" ng-model="pswd" name="pswd" placeholder="   Enter Password" style="border-radius:5px;"></p>
+                    <p>By creating an account you agree to our Terms & Privacy.</p>
+                    <div style="color: red;">{{ validationMessage }}</div>
+                    <button type="submit">SIGN UP</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('signupController', function($scope) {
+            $scope.validationMessage = "";
+            $scope.validateForm = function(event) {
+                $scope.validationMessage = "";
+                if (!$scope.uname || $scope.uname.trim() === "") {
+                    $scope.validationMessage += "Username cannot be empty.";
+                    event.preventDefault();
+                    return;
+                } 
+                if (!$scope.mbno || $scope.mbno.length !== 10 || isNaN($scope.mbno)) {
+                    $scope.validationMessage += "Mobile number should have exactly 10 digits and contain only numbers.";
+                    event.preventDefault();
+                    return;
+                }   
+                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                if (!$scope.mail || !emailPattern.test($scope.mail)) {
+                    $scope.validationMessage += "Please enter a valid email address.";
+                    event.preventDefault();
+                    return;
+                }
+                if (!$scope.pswd || $scope.pswd.length < 6) {
+                    $scope.validationMessage += "Password should have at least 6 characters.";
+                    event.preventDefault();
+                    return;
+                }
+            };
+        });
+    </script>
+    
+</body>
+</html>

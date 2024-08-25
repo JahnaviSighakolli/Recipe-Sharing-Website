@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mealBestow">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meal Bestow - Saved Items</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-file-upload/2.5.0/angular-file-upload.min.js"></script>
+    <script src="https://kit.fontawesome.com/a760d5eed3.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: pink;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .savecontainer {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .welcome-message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .items-section {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .saved-items,
+        .uploaded-items {
+            flex: 1;
+            margin: 0 10px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .item-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .item-list li {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+            background-color: #ffffff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-list li img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .message-card
+        {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            background-color: #f4f4f4;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sender-info
+        {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .shared-info
+        {
+            margin-top: 8px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body ng-controller="SavedItemsController">
+
+    <nav>
+        <ul class="navbar">
+            <img src="Screenshot 2023-08-27 105735.png" width="150px" height="150px">
+            <li class="search">
+                <form name="sform" action="#">
+                    <input type="text" placeholder="   What are you looking for ?" name="search">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </li>
+            <h1 style="padding-left: 70px; padding-right: 0%;">MEAL BESTOW</h1>
+            <li><a href="home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li class="dropdown">
+                <a href="#"><i class="fa-solid fa-utensils"></i> Recipes</a>
+                <ul class="dropdown-content">
+                    <li><a href="breakfast.html">Breakfast</a></li>
+                    <li><a href="lunch.html">Lunch</a></li>
+                    <li><a href="dinner.html">Dinner</a></li>
+                    <li><a href="desserts.html">Desserts</a></li>
+                    <li><a href="snacks.html">Snacks</a></li>
+                    <li><a href="beverages.html">Beverages</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+            <li><a href="upload_recipe.html"><i class="fa-solid fa-upload"></i> Upload</a></li>
+            <li><a href="save.html"><i class="fa-solid fa-child"></i> Profile</a></li>
+            <li><a href="index.php"><i class="fa-solid fa-user"></i> LogOut</a></li>
+        </ul>
+    </nav>
+
+    <div class="savecontainer">
+        <div class="welcome-message">
+            Welcome, <span ng-bind="username"></span>!
+        </div>
+
+        <section class="saved-items">
+            <h2>Saved Items</h2>
+            <ul class="item-list">
+                <li ng-repeat="item in savedItems" class="animate__animated animate__fadeIn">
+                    {{ item }}
+                    <button ng-click="deleteSavedItem($index)">Delete</button>
+                </li>
+            </ul>
+        </section>
+
+        <section class="uploaded-items">
+            <h2>Uploaded Items</h2>
+            <ul class="item-list">
+                <li ng-repeat="item in uploadedItems" class="animate__animated animate__fadeIn">
+                    <strong>Recipe Name:</strong> {{ item.name }}<br>
+                    <strong>Ingredients:</strong> {{ item.ingredients }}<br>
+                    <strong>Instructions:</strong> {{ item.instructions }}<br>
+                    <strong>Prep Time:</strong> {{ item.prepTime }} minutes<br>
+                    <strong>Difficulty Level:</strong> {{ item.difficultyLevel }}<br>
+                    <button ng-click="deleteUploadedItem($index)">Delete</button>
+                </li>
+            </ul>
+        </section> 
+    </div>
+
+    <div class="savecontainer">
+        <div ng-repeat="recipe in sharedRecipes" class="message-card">
+            <div class="sender-info">{{ recipe.sender_username }}</div>
+            <div class="shared-info">Shared: {{ recipe.recipe_name }}</div>
+        </div>
+    </div>
+    
+    <script src="getUserId.php"></script>
+
+<script>
+    var app = angular.module('mealBestow', []);
+
+    app.controller('SavedItemsController', function($scope, $http) {
+        var savedItems = JSON.parse(sessionStorage.getItem('savedItems')) || [];
+        $scope.savedItems = savedItems;
+        var uploadedItems = JSON.parse(sessionStorage.getItem('uploadedItems')) || [];
+        $scope.uploadedItems = uploadedItems;
+
+        $http.get('getuname.php')
+            .then(function (response) {
+                $scope.username = response.data.username;
+            })
+            .catch(function (error) {
+                console.error('Error getting username:', error);
+            });
+
+        $http.get('getUserId.php')
+            .then(function(response) {
+                $scope.userId = response.data.userId;
+
+                $http.get('get_shared_recipes.php?userId=' + $scope.userId)
+                    .then(function(sharedResponse) {
+                        $scope.sharedRecipes = sharedResponse.data;
+                    })
+                    .catch(function(sharedError) {
+                        console.error('Error fetching shared recipes:', sharedError);
+                    });
+            })
+            .catch(function(error) {
+                console.error('Error getting user ID:', error);
+            });
+
+        $scope.deleteSavedItem = function (index) {
+            $scope.savedItems.splice(index, 1);
+            sessionStorage.setItem('savedItems', JSON.stringify($scope.savedItems));
+        };
+
+        $scope.deleteUploadedItem = function (index) {
+            $scope.uploadedItems.splice(index, 1);
+            sessionStorage.setItem('uploadedItems', JSON.stringify($scope.uploadedItems));
+        };
+    });
+</script>
+
+</body>
+</html>
